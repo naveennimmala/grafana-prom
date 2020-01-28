@@ -1,0 +1,14 @@
+- name: node start
+  hosts: all
+  user: root
+  tasks:
+    - name: kill
+      shell: killall grafana-server
+      ignore_errors: yes
+    - name: kill
+      shell: killall prometheus
+      ignore_errors: yes
+    - name: bringing up the prom
+      shell: chdir=/home/ubuntu/prometheus-2.15.2.linux-amd64 ./prometheus &
+    - name: bringing up the application
+      shell: chdir=/home/ubuntu/grafana-6.5.3 ./bin/grafana-server &
