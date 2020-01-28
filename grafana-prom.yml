@@ -1,5 +1,5 @@
 - name: node start
-  hosts: all
+  hosts: grafana
   user: root
   tasks:
     - name: kill
